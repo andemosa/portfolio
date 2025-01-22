@@ -6,6 +6,16 @@ import { MobileProjectCard } from "./libs/ProjectCard/Mobile";
 
 const projects = [
   {
+    title: "Easelab",
+    subtitle: "",
+    description:
+      "EaseLab Africa is a healthcare company dedicated to transforming the medical diagnostics landscape across Africa by equipping laboratories with world-class tools, advanced technology, and innovative solutions.",
+    technologies: ["Typescript", "NextJS", "TailwindCSS", "Framer-motion"],
+    externalLink: "https://easelabafrica.com/",
+    githubLink: "",
+    imageLink: `/images/easelab.webp`,
+  },
+  {
     title: "Diabetes Care Network",
     subtitle: "",
     description:
@@ -14,24 +24,6 @@ const projects = [
     externalLink: "https://thediabetescarenetwork.com/",
     githubLink: "",
     imageLink: `/images/tdcn.webp`,
-  },
-  {
-    title: "NFTicket",
-    subtitle: "",
-    description:
-      "This is a decentralized NFT ticketing platform developed in the Based Africa Buildathon to guarantee secure, verifiable ticket ownership.",
-    technologies: [
-      "Typescript",
-      "ReactJS",
-      "TailwindCSS",
-      "Solidity",
-      "Foundry",
-      "Coinbase OnchainKit",
-      "Ethers.js"
-    ],
-    externalLink: "https://nf-ticket.vercel.app/",
-    githubLink: "https://github.com/Dearestchoice/NfTicket",
-    imageLink: `/images/nfticket.webp`,
   },
   {
     title: "Creon",

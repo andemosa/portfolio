@@ -1,10 +1,9 @@
 import clsx from "clsx";
-import { Container, Logo } from "components";
 import Link from "next/link";
-import { FC } from "react";
 import { HiMoon, HiSun } from "react-icons/hi";
 
 import { useThemeSwitch } from "lib";
+import { Container, Logo } from "components";
 import { useHeaderVisible } from "./libs/useHeaderVisible";
 
 enum Themes {
@@ -12,7 +11,7 @@ enum Themes {
   dark = "dark",
 }
 
-export const Header: FC = () => {
+export const Header = ({ className }: { className?: string }) => {
   const visible = useHeaderVisible();
 
   const { theme, changeTheme } = useThemeSwitch();
@@ -20,6 +19,7 @@ export const Header: FC = () => {
   return (
     <nav
       className={clsx(
+        className,
         "fixed z-20 w-full opacity-90 bg-lightTheme dark:bg-darkTheme transition-top duration-300",
         visible ? "top-0" : "-top-28"
       )}

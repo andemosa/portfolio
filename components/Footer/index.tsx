@@ -1,5 +1,6 @@
 import { Container, MediaIcon } from "components";
-import { FaGithub, FaLinkedin, FaTwitter, FaMedium } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
+import {FaXTwitter} from 'react-icons/fa6'
 import { SiHackernoon, SiHashnode } from "react-icons/si";
 
 export const Footer = () => {
@@ -18,8 +19,8 @@ export const Footer = () => {
             className="mr-4"
           />
           <MediaIcon
-            icon={<FaTwitter className="w-6 h-6 md:w-7 md:h-7" />}
-            href="https://twitter.com/andemosa"
+            icon={<FaXTwitter className="w-6 h-6 md:w-7 md:h-7" />}
+            href="https://x.com/andemosa"
             className="mr-4"
           />
           <MediaIcon

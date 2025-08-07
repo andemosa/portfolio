@@ -1,7 +1,7 @@
 import { FaGithub } from "react-icons/fa";
-import { FiExternalLink } from "react-icons/fi";
-
-import { MediaIcon } from "components";
+import { FiExternalLink, FiArrowRight } from "react-icons/fi";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 interface Props {
   title: string;
@@ -11,17 +11,9 @@ interface Props {
   externalLink: string;
   githubLink: string;
   imageLink: string;
+  slug: string;
+  category: string;
 }
-
-const arrayToString = (array: string[]) => {
-  // Check if the array is empty.
-  if (array.length === 0) {
-    return "";
-  }
-
-  // Join the elements of the array into a single string, separated by commas.
-  return array.join(", ");
-};
 
 export const MobileProjectCard = ({
   title,
@@ -31,39 +23,89 @@ export const MobileProjectCard = ({
   externalLink,
   githubLink,
   imageLink,
+  slug,
+  category,
 }: Props) => {
   return (
-    <div className="border max-w-md w-full h-64 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden dark:border-gray-700">
-      <div className="w-full h-full relative bg-cover bg-center">
+    <motion.div
+      className="bg-white dark:bg-gray-900 bg-opacity-60 dark:bg-opacity-40 rounded-xl overflow-hidden shadow-lg border border-gray-700 border-opacity-20 dark:border-white-300 dark:border-opacity-20 w-full max-w-md mx-auto"
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="relative h-40 overflow-hidden">
         <img
-          className="w-full h-full transition-transform transform hover:opacity-0 object-fill"
+          className="w-full h-full object-cover"
           src={imageLink}
-          alt=""
+          alt={title}
         />
-        <div className="absolute inset-0 flex flex-col p-4 gap-2 justify-between opacity-0 bg-black bg-opacity-80 hover:opacity-90 transition-opacity hover:bg-darkTheme text-white-900">
-          <div>
-            <h3 className="font-bold text-lg">{title}</h3>
-            <p className="font-medium text-sm">{subtitle}</p>
-          </div>
-          <p className="text-sm">{description}</p>
-          <div className="flex flex-col text-sm gap-2">
-            <p>{arrayToString(technologies)}</p>
-            <div className="flex gap-2">
-              {githubLink ? (
-                <MediaIcon
-                  icon={<FaGithub className="w-6 h-6 text-white-900" />}
-                  href={githubLink}
-                  className="mr-4"
-                />
-              ) : null}
-              <MediaIcon
-                icon={<FiExternalLink className="w-6 h-6 text-white-900" />}
-                href={externalLink}
-              />
-            </div>
+        <div className="absolute top-3 left-3">
+          <span className="px-2 py-1 text-xs font-medium bg-blue-700 text-white rounded-full">
+            {category}
+          </span>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black-900 from-0% via-transparent via-50% to-transparent opacity-40"></div>
+      </div>
+
+      <div className="p-5">
+        <div className="mb-3">
+          <h3 className="font-bold text-xl text-black-900 dark:text-white-900 mb-1 line-clamp-1">
+            {title}
+          </h3>
+          <p className="text-sm font-medium text-black-700 dark:text-white-700 line-clamp-1">
+            {subtitle}
+          </p>
+        </div>
+
+        <p className="text-sm text-black-700 dark:text-white-700 mb-4 line-clamp-2 leading-relaxed">
+          {description}
+        </p>
+
+        <div className="flex flex-wrap gap-1.5 mb-5">
+          {technologies.slice(0, 3).map((tech) => (
+            <span
+              key={tech}
+              className="px-2 py-1 text-xs font-medium bg-blue-700 bg-opacity-15 dark:bg-blue-900 dark:bg-opacity-25 text-blue-900 dark:text-blue-700 rounded"
+            >
+              {tech}
+            </span>
+          ))}
+          {technologies.length > 3 && (
+            <span className="px-2 py-1 text-xs font-medium bg-gray-700 bg-opacity-15 dark:bg-white-300 dark:bg-opacity-15 text-gray-700 dark:text-white-700 rounded">
+              +{technologies.length - 3}
+            </span>
+          )}
+        </div>
+
+        <div className="flex items-center justify-between">
+          <Link href={`/projects/${slug}`}>
+            <a className="inline-flex items-center text-blue-700 hover:text-blue-900 dark:text-blue-700 dark:hover:text-blue-900 transition-colors font-medium text-sm group">
+              View Details
+              <FiArrowRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-0.5 transition-transform" />
+            </a>
+          </Link>
+
+          <div className="flex items-center gap-2">
+            {githubLink && (
+              <a
+                href={githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg text-black-700 dark:text-white-700 hover:text-black-900 dark:hover:text-white-900 hover:bg-gray-700 hover:bg-opacity-10 dark:hover:bg-white-300 dark:hover:bg-opacity-10 transition-all"
+              >
+                <FaGithub className="w-4 h-4" />
+              </a>
+            )}
+            <a
+              href={externalLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg text-black-700 dark:text-white-700 hover:text-black-900 dark:hover:text-white-900 hover:bg-gray-700 hover:bg-opacity-10 dark:hover:bg-white-300 dark:hover:bg-opacity-10 transition-all"
+            >
+              <FiExternalLink className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

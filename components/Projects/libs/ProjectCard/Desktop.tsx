@@ -82,10 +82,11 @@ export const DesktopProjectCard = ({
             rightShift && "md:justify-end"
           )}
         >
-          <Link href={`/projects/${slug}`}>
-            <a className="inline-flex items-center hover:text-blue-700 text-blue-900 dark:text-blue-700 dark:hover:text-blue-900 transition-colors font-medium">
+          <Link href={`/projects/${slug}`} passHref>
+            <a className="inline-flex items-center hover:text-blue-700 text-blue-900 dark:text-blue-700 dark:hover:text-blue-900 transition-colors font-medium relative group">
               View Details
               <FiArrowRight className="w-4 h-4 ml-1" />
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-700 dark:bg-blue-900 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
             </a>
           </Link>
           {githubLink ? (

@@ -77,15 +77,16 @@ export const MobileProjectCard = ({
         </div>
 
         <div className="flex items-center justify-between">
-          <Link href={`/projects/${slug}`}>
-            <a className="inline-flex items-center text-blue-700 hover:text-blue-900 dark:text-blue-700 dark:hover:text-blue-900 transition-colors font-medium text-sm group">
+          <Link href={`/projects/${slug}`} passHref>
+            <a className="inline-flex items-center hover:text-blue-700 text-blue-900 dark:text-blue-700 dark:hover:text-blue-900 transition-colors font-medium relative group">
               View Details
-              <FiArrowRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-0.5 transition-transform" />
+              <FiArrowRight className="w-4 h-4 ml-1" />
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-700 dark:bg-blue-900 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
             </a>
           </Link>
 
           <div className="flex items-center gap-2">
-            {githubLink && (
+            {githubLink ? (
               <a
                 href={githubLink}
                 target="_blank"
@@ -94,7 +95,7 @@ export const MobileProjectCard = ({
               >
                 <FaGithub className="w-4 h-4" />
               </a>
-            )}
+            ) : null}
             <a
               href={externalLink}
               target="_blank"

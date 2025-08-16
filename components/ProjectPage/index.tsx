@@ -22,10 +22,11 @@ export const ProjectPage: FC<ProjectPageProps> = ({ project }) => {
           transition={{ duration: 0.5 }}
           className="mb-8"
         >
-          <Link href="/projects">
-            <a className="inline-flex items-center text-black-700 dark:text-white-700 hover:text-black-900 dark:hover:text-white-900 transition-colors">
+          <Link href="/projects" passHref>
+            <a className="inline-flex items-center text-black-700 dark:text-white-700 hover:text-black-900 dark:hover:text-white-900 transition-colors relative group">
               <FaArrowLeft className="w-4 h-4 mr-2" />
               Back to Projects
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-black-900 dark:bg-white-900 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
             </a>
           </Link>
         </motion.div>

@@ -1,8 +1,7 @@
-import { Container, Header, } from "components";
+import { Header } from "components";
 import { motion } from "framer-motion";
 import Head from "next/head";
 import Link from "next/link";
-import { FaArrowLeft, } from "react-icons/fa";
 import { projects } from "lib/projects";
 import { DesktopProjectCard } from "components/Projects/libs/ProjectCard/Desktop";
 import { MobileProjectCard } from "components/Projects/libs/ProjectCard/Mobile";
@@ -25,21 +24,7 @@ const ProjectsPage = () => {
 
       <div className="min-h-screen bg-lightTheme dark:bg-darkTheme transition-colors">
         <Header />
-        <Container className="pt-32 pb-16">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8"
-          >
-            <Link href="/">
-              <a className="inline-flex items-center text-black-700 dark:text-white-700 hover:text-black-900 dark:hover:text-white-900 transition-colors">
-                <FaArrowLeft className="w-4 h-4 mr-2" />
-                Back to Home
-              </a>
-            </Link>
-          </motion.div>
-
+        <div className="pt-32 pb-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -96,7 +81,7 @@ const ProjectsPage = () => {
               </a>
             </Link>
           </motion.div>
-        </Container>
+        </div>
       </div>
     </>
   );

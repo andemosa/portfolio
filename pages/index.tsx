@@ -14,17 +14,29 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 
 const IndexPage = () => {
-  const [citation, setCitation] = useState(true);
+  const [citation, setCitation] = useState(false);
   const [main, setMain] = useState(false);
 
   useEffect(() => {
-    const ids = [
-      setTimeout(() => setCitation(false), 4800),
-      setTimeout(() => setMain(true), 5700),
-    ];
+    // Check if this is a page refresh or first visit
+    const hasVisited = sessionStorage.getItem('hasVisitedBefore');
+    
+    if (!hasVisited) {
+      // First visit or page refresh - show citation overlay
+      setCitation(true);
+      sessionStorage.setItem('hasVisitedBefore', 'true');
+      
+      const ids = [
+        setTimeout(() => setCitation(false), 4800),
+        setTimeout(() => setMain(true), 5700),
+      ];
 
-    return () => ids.forEach((id) => clearTimeout(id));
-  }, [setCitation]);
+      return () => ids.forEach((id) => clearTimeout(id));
+    } else {
+      // Navigation back to homepage - skip citation overlay
+      setMain(true);
+    }
+  }, []);
 
   return (
     <>

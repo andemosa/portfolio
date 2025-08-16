@@ -11,5 +11,6 @@ export { Logo } from "./Logo";
 export { MediaIcon } from "./MediaIcon";
 export { Projects } from "./Projects";
 export { ProjectPage } from "./ProjectPage";
+export { ProjectGallery } from "./ProjectGallery";
 export { Section } from "./Section";
 export { Skills } from "./Skills";

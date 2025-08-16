@@ -5,6 +5,7 @@ import { FaGithub, FaArrowLeft, FaCheck } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 import Link from "next/link";
 import { Project } from "lib/projects";
+import { ProjectGallery } from "components/ProjectGallery";
 
 interface ProjectPageProps {
   project: Project;
@@ -66,7 +67,7 @@ export const ProjectPage: FC<ProjectPageProps> = ({ project }) => {
                 />
               </div>
             </div>
-            
+
             <div className="lg:w-5/12">
               <motion.img
                 src={project.imageLink}
@@ -118,18 +119,24 @@ export const ProjectPage: FC<ProjectPageProps> = ({ project }) => {
             </div>
           </section>
 
+          {project.gallery && project.gallery.length > 0 && (
+            <section>
+              <h2 className="text-3xl md:text-4xl font-bold text-black-900 dark:text-white-900 mb-6">
+                Project Screenshots
+              </h2>
+              <ProjectGallery images={project.gallery} title={project.title} />
+            </section>
+          )}
+
           <section>
             <h2 className="text-3xl md:text-4xl font-bold text-black-900 dark:text-white-900 mb-6">
-              Your Role
+              My Role
             </h2>
             <div className="mb-6">
               <div className="flex flex-col md:flex-row md:items-center gap-4 mb-4">
                 <h3 className="text-xl font-semibold text-black-900 dark:text-white-900">
                   {project.role.title}
                 </h3>
-                <span className="text-lg text-black-700 dark:text-white-700">
-                  {project.role.duration}
-                </span>
               </div>
             </div>
             <ul className="space-y-3">
@@ -142,7 +149,9 @@ export const ProjectPage: FC<ProjectPageProps> = ({ project }) => {
                   className="flex items-start"
                 >
                   <FaCheck className="w-4 h-4 text-blue-700 mt-1 mr-3 flex-shrink-0" />
-                  <p className="text-lg text-black-700 dark:text-white-700">{responsibility}</p>
+                  <p className="text-lg text-black-700 dark:text-white-700">
+                    {responsibility}
+                  </p>
                 </motion.li>
               ))}
             </ul>
@@ -159,7 +168,9 @@ export const ProjectPage: FC<ProjectPageProps> = ({ project }) => {
                 </h3>
                 <div className="space-y-3">
                   <div>
-                    <h4 className="font-medium text-black-900 dark:text-white-900 mb-2">Frontend</h4>
+                    <h4 className="font-medium text-black-900 dark:text-white-900 mb-2">
+                      Frontend
+                    </h4>
                     <div className="flex flex-wrap gap-2">
                       {project.stack.frontend.map((tech) => (
                         <span
@@ -173,7 +184,9 @@ export const ProjectPage: FC<ProjectPageProps> = ({ project }) => {
                   </div>
                   {project.stack.backend && (
                     <div>
-                      <h4 className="font-medium text-black-900 dark:text-white-900 mb-2">Backend</h4>
+                      <h4 className="font-medium text-black-900 dark:text-white-900 mb-2">
+                        Backend
+                      </h4>
                       <div className="flex flex-wrap gap-2">
                         {project.stack.backend.map((tech) => (
                           <span
@@ -187,7 +200,9 @@ export const ProjectPage: FC<ProjectPageProps> = ({ project }) => {
                     </div>
                   )}
                   <div>
-                    <h4 className="font-medium text-black-900 dark:text-white-900 mb-2">Tools</h4>
+                    <h4 className="font-medium text-black-900 dark:text-white-900 mb-2">
+                      Tools
+                    </h4>
                     <div className="flex flex-wrap gap-2">
                       {project.stack.tools.map((tool) => (
                         <span
@@ -226,102 +241,12 @@ export const ProjectPage: FC<ProjectPageProps> = ({ project }) => {
                   className="flex items-start"
                 >
                   <span className="w-2 h-2 bg-blue-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                  <p className="text-lg text-black-700 dark:text-white-700">{feature}</p>
+                  <p className="text-lg text-black-700 dark:text-white-700">
+                    {feature}
+                  </p>
                 </motion.li>
               ))}
             </ul>
-          </section>
-
-          {project.challenges && project.challenges.length > 0 && (
-            <section>
-              <h2 className="text-3xl md:text-4xl font-bold text-black-900 dark:text-white-900 mb-6">
-                Challenges & Solutions
-              </h2>
-              <div className="space-y-8">
-                {project.challenges.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 1.0 + index * 0.2 }}
-                    className="border-l-4 border-blue-700 pl-6"
-                  >
-                    <h3 className="text-xl font-semibold text-black-900 dark:text-white-900 mb-3">
-                      Challenge: {item.challenge}
-                    </h3>
-                    <p className="text-lg text-black-700 dark:text-white-700 leading-relaxed">
-                      <strong>Solution:</strong> {item.solution}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          <section>
-            <h2 className="text-3xl md:text-4xl font-bold text-black-900 dark:text-white-900 mb-6">
-              Impact
-            </h2>
-            <div className="grid gap-8">
-              {project.impact.metrics && project.impact.metrics.length > 0 && (
-                <div>
-                  <h3 className="text-xl font-semibold text-black-900 dark:text-white-900 mb-4">
-                    Key Metrics
-                  </h3>
-                  <ul className="space-y-3">
-                    {project.impact.metrics.map((metric, index) => (
-                      <li key={index} className="flex items-start">
-                        <span className="w-2 h-2 bg-blue-900 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                        <p className="text-lg text-black-700 dark:text-white-700">{metric}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              
-              <div>
-                <h3 className="text-xl font-semibold text-black-900 dark:text-white-900 mb-4">
-                  Results
-                </h3>
-                <ul className="space-y-3">
-                  {project.impact.results.map((result, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-900 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                      <p className="text-lg text-black-700 dark:text-white-700">{result}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {project.impact.testimonials && project.impact.testimonials.length > 0 && (
-                <div>
-                  <h3 className="text-xl font-semibold text-black-900 dark:text-white-900 mb-4">
-                    Testimonials
-                  </h3>
-                  <div className="space-y-4">
-                    {project.impact.testimonials.map((testimonial, index) => (
-                      <blockquote key={index} className="border-l-4 border-blue-700 pl-6 italic text-lg text-black-700 dark:text-white-700">
-                        "{testimonial}"
-                      </blockquote>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              <div>
-                <h3 className="text-xl font-semibold text-black-900 dark:text-white-900 mb-4">
-                  Lessons Learned
-                </h3>
-                <ul className="space-y-3">
-                  {project.impact.lessons.map((lesson, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="w-2 h-2 bg-gray-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                      <p className="text-lg text-black-700 dark:text-white-700">{lesson}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
           </section>
         </motion.div>
 
@@ -379,4 +304,4 @@ export const ProjectPage: FC<ProjectPageProps> = ({ project }) => {
       </Container>
     </div>
   );
-}; 
+};

@@ -25,9 +25,10 @@ export const Hero: FC = () => {
           },
         }}
         transition={{
+          type: "spring",
           damping: 5,
           mass: 1,
-          delay: 6,
+          delay: 2,
         }}
         initial="hidden"
         animate="visible"

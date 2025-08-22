@@ -61,19 +61,14 @@ export const MobileProjectCard = ({
         </p>
 
         <div className="flex flex-wrap gap-1.5 mb-5">
-          {technologies.slice(0, 3).map((tech) => (
+          {technologies.map((tech) => (
             <span
               key={tech}
               className="px-2 py-1 text-xs font-medium bg-blue-700 bg-opacity-15 dark:bg-blue-900 dark:bg-opacity-25 text-blue-900 dark:text-blue-700 rounded"
             >
               {tech}
             </span>
-          ))}
-          {technologies.length > 3 && (
-            <span className="px-2 py-1 text-xs font-medium bg-gray-700 bg-opacity-15 dark:bg-white-300 dark:bg-opacity-15 text-gray-700 dark:text-white-700 rounded">
-              +{technologies.length - 3}
-            </span>
-          )}
+          ))}  
         </div>
 
         <div className="flex items-center justify-between">

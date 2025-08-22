@@ -103,7 +103,7 @@ export const projects: Project[] = [
         "The platform serves healthcare professionals, diabetes patients, caregivers, and medical institutions across Nigeria who need better resources for diabetes management and education.",
     },
     role: {
-      title: "Full-stack Developer",
+      title: "Fullstack Developer",
       responsibilities: [
         "Led the full-stack development using Next.js and TypeScript",
         "Designed user interfaces that work for people with different literacy levels",
@@ -155,7 +155,7 @@ export const projects: Project[] = [
         "Developed the complete application using Next.js and TypeScript",
         "Designed intuitive interfaces for medication management and health tracking",
         "Built secure systems for managing patient health profiles",
-        "Created a consultation system for telemedicine booking with health professional",
+        "Created a booking system for telemedicine consultation with health professional via video conferencing",
       ],
       duration: "2.5 months (2025)",
     },
@@ -163,12 +163,12 @@ export const projects: Project[] = [
       frontend: ["Next.js", "TypeScript"],
       tools: ["Git", "Netlify", "Paystack"],
       reasoning:
-        "I chose Next.js for the pharmaceutical industry's need for fast, SEO-optimized pages that build trust. TypeScript was essential for building reliable medication management systems. The stack prioritizes security and compliance features that are required in pharmaceutical services.",
+        "I chose Next.js for the pharmacy's need for fast, SEO-optimized pages that build trust. TypeScript was essential for building reliable medication management systems. The stack prioritizes security and compliance features that are required in pharmaceutical services.",
     },
     features: [
       "Comprehensive online pharmacy service catalog with search and filtering",
       "Point-of-care testing appointment booking and result tracking",
-      "Telemedicine consultation with health professional",
+      "Telemedicine consultation with health professional via video conferencing",
       "Personalized care recommendations based on individual health profiles",
       "Secure customer health profile management system",
       "Digital prescription management and refill tracking",
@@ -231,7 +231,7 @@ export const projects: Project[] = [
     gallery: [
       "/images/creon/creon.webp",
       "/images/creon/profit.webp",
-      "/images/creon/creon.webp",
+      "/images/creon/mobile.webp",
     ],
     year: "2023",
     category: "Web3/Blockchain",
@@ -339,7 +339,6 @@ export const projects: Project[] = [
     gallery: [
       "/images/task-app/task-app.webp",
       "/images/task-app/list.webp",
-      "/images/task-app/show.webp",
       "/images/task-app/update.webp",
       "/images/task-app/mobile.webp",
     ],

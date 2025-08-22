@@ -1,6 +1,7 @@
+import Link from "next/link";
 import clsx from "clsx";
 import { FaGithub } from "react-icons/fa";
-import { FiExternalLink } from "react-icons/fi";
+import { FiExternalLink, FiArrowRight } from "react-icons/fi";
 import { motion } from "framer-motion";
 
 import { MediaIcon } from "components";
@@ -16,6 +17,7 @@ interface Props {
   externalLink: string;
   githubLink: string;
   imageLink: string;
+  slug: string;
   rightShift?: boolean;
 }
 
@@ -27,6 +29,7 @@ export const DesktopProjectCard = ({
   githubLink,
   technologies,
   imageLink,
+  slug,
   rightShift,
 }: Props) => {
   const [hoverRef, isHovered] = useHover<HTMLAnchorElement>();
@@ -79,6 +82,13 @@ export const DesktopProjectCard = ({
             rightShift && "md:justify-end"
           )}
         >
+          <Link href={`/projects/${slug}`} passHref>
+            <a className="inline-flex items-center hover:text-blue-700 text-blue-900 dark:text-blue-700 dark:hover:text-blue-900 transition-colors font-medium relative group">
+              View Details
+              <FiArrowRight className="w-4 h-4 ml-1" />
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-700 dark:bg-blue-900 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+            </a>
+          </Link>
           {githubLink ? (
             <MediaIcon
               icon={<FaGithub className="w-6 h-6" />}
@@ -86,7 +96,9 @@ export const DesktopProjectCard = ({
             />
           ) : null}
           <MediaIcon
-            icon={<FiExternalLink className="w-6 h-6 text-black-900 dark:text-white-900" />}
+            icon={
+              <FiExternalLink className="w-6 h-6 text-black-900 dark:text-white-900" />
+            }
             href={externalLink}
           />
         </div>

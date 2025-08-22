@@ -1,7 +1,8 @@
 import { Container, MediaIcon } from "components";
 import { motion } from "framer-motion";
 import { FC } from "react";
-import { FaGithub, FaLinkedin, FaPaperclip, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaPaperclip } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 import { HandWave } from "./libs/HandWave";
 import { HeroLink } from "./libs/HeroLink";
@@ -24,9 +25,10 @@ export const Hero: FC = () => {
           },
         }}
         transition={{
+          type: "spring",
           damping: 5,
           mass: 1,
-          delay: 6,
+          delay: 2,
         }}
         initial="hidden"
         animate="visible"
@@ -55,8 +57,8 @@ export const Hero: FC = () => {
           className="mr-4"
         />
         <MediaIcon
-          icon={<FaTwitter className="w-6 h-6 md:w-7 md:h-7" />}
-          href="https://twitter.com/andemosa"
+          icon={<FaXTwitter className="w-6 h-6 md:w-7 md:h-7" />}
+          href="https://x.com/andemosa"
           className="mr-4"
         />
         <MediaIcon

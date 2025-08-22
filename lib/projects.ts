@@ -11,7 +11,6 @@ export interface Project {
   role: {
     title: string;
     responsibilities: string[];
-    duration: string;
   };
   stack: {
     frontend: string[];
@@ -61,7 +60,6 @@ export const projects: Project[] = [
         "Mentored a junior developer during the project.",
         "Ensured the site meets accessibility standards.",
       ],
-      duration: "3 months (2025)",
     },
     stack: {
       frontend: ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion"],
@@ -109,7 +107,6 @@ export const projects: Project[] = [
         "Designed user interfaces that work for people with different literacy levels",
         "Created a content management system that supports diabetes care education",
       ],
-      duration: "4 months (2024)",
     },
     stack: {
       frontend: ["Next.js", "TypeScript"],
@@ -157,7 +154,6 @@ export const projects: Project[] = [
         "Built secure systems for managing patient health profiles",
         "Created a booking system for telemedicine consultation with health professional via video conferencing",
       ],
-      duration: "2.5 months (2025)",
     },
     stack: {
       frontend: ["Next.js", "TypeScript"],
@@ -209,7 +205,6 @@ export const projects: Project[] = [
         "Optimized performance for web3 audience expectations",
         "Created interactive elements that showcase AI and blockchain capabilities",
       ],
-      duration: "0.5 months (2023)",
     },
     stack: {
       frontend: ["Next.js", "TypeScript", "TailwindCSS", "ShadcnUI"],
@@ -258,7 +253,6 @@ export const projects: Project[] = [
         "Added dark/light theme switcher with localStorage support",
         "Built fully responsive layout using TailwindCSS",
       ],
-      duration: "1 week (2024)",
     },
     stack: {
       frontend: ["Next.js", "TypeScript", "TailwindCSS"],
@@ -308,7 +302,6 @@ export const projects: Project[] = [
         "Implemented state management for real‑time task updates",
         "Deployed the application with seamless CI/CD on Vercel and Render",
       ],
-      duration: "2 weeks (2023)",
     },
     stack: {
       frontend: ["React.js", "Vite", "TypeScript", "TailwindCSS"],
@@ -368,7 +361,6 @@ export const projects: Project[] = [
         "Implemented search and genre filtering",
         "Built dynamic routing for movie detail pages",
       ],
-      duration: "1 week (2023)",
     },
     stack: {
       frontend: ["React.js", "Vite", "TypeScript", "TailwindCSS"],
@@ -417,7 +409,6 @@ export const projects: Project[] = [
         "Used Framer Motion for entry animations",
         "Deployed via Vercel with performant build",
       ],
-      duration: "2 weeks (2024)",
     },
     stack: {
       frontend: ["React.js", "Vite", "TypeScript", "TailwindCSS", "ShadcnUI"],

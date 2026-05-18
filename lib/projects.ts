@@ -183,6 +183,96 @@ export const projects: Project[] = [
     category: "Healthcare",
   },
   {
+    slug: "clicon",
+    title: "Clicon",
+    subtitle: "Full-Stack E-Commerce Platform",
+    description:
+      "Clicon is a full-featured e-commerce platform with multi-payment gateway support, a browsing history, product reviews, and role-based admin and user dashboards.",
+    overview: {
+      problem:
+        "Most e-commerce platforms available to small and mid-size businesses either lack flexibility for multi-payment support or provide poor developer control over the shopping experience. Managing inventory, orders, and customer data through separate tools adds operational overhead and degrades the customer experience.",
+      solution:
+        "I built a complete e-commerce platform from the ground up — a NestJS backend with a React.js frontend — covering the full shopping lifecycle from product discovery to order fulfilment. The platform integrates multiple payment gateways, a review system tied to verified purchases, and a filter-heavy shop page with URL-synced state, making it easy for users to find products and for admins to manage operations from a dedicated dashboard.",
+      target:
+        "Small to mid-size online retailers and their customers who need a reliable, feature-complete shopping experience with flexible payment options and transparent product reviews.",
+    },
+    role: {
+      title: "Fullstack Developer",
+      responsibilities: [
+        "Architected and built the NestJS REST API backend including authentication, order management, and product modules",
+        "Developed the React.js frontend with TanStack Router for URL-synced filter and search state on the shop page",
+        "Integrated Paystack, Stripe, and NowPayments for multi-gateway checkout",
+        "Built a browsing history engine that tracks and surfaces recently viewed products",
+        "Implemented a review and rating system gated to verified order completion",
+        "Created role-based dashboards for admin product/order management and user order history",
+      ],
+    },
+    stack: {
+      frontend: ["React.js", "TypeScript", "ChakraUI", "TanStack Router"],
+      backend: ["Node.js", "NestJS", "PostgreSQL", "TypeORM"],
+      tools: ["Git", "Vercel", "Paystack", "Stripe", "NowPayments"],
+      reasoning:
+        "NestJS gave me a scalable, opinionated backend architecture well-suited to the modular nature of an e-commerce API. React.js and TanStack Router enabled robust URL synchronisation for complex shop filters without sacrificing the user experience. Supporting Paystack, Stripe, and NowPayments ensured the platform could serve both local Nigerian customers and international buyers, including crypto payment options.",
+    },
+    features: [
+      "Multi-gateway checkout supporting Paystack, Stripe, and NowPayments (crypto)",
+      "Browsing history engine that surfaces recently viewed products",
+      "Product review and rating system restricted to verified purchasers",
+      "Filter-heavy shop page with URL-synced search, category, price, and sort parameters",
+      "Role-based dashboards — admin for product and order management, user for order tracking",
+      "Fully responsive design optimised for mobile and desktop",
+    ],
+    challenges: [
+      {
+        challenge:
+          "Keeping the shop page filter state in sync with the URL without causing unnecessary re-renders or breaking the back-button experience.",
+        solution:
+          "Used TanStack Router's search param APIs to derive all filter state directly from the URL, making the page fully shareable and navigable without any external state management overhead.",
+      },
+      {
+        challenge:
+          "Handling webhook events from three different payment providers consistently while avoiding duplicate order fulfilment.",
+        solution:
+          "Implemented idempotent order status updates on the NestJS backend, keyed to provider transaction references, so repeat or delayed webhook deliveries from any gateway were safely ignored.",
+      },
+    ],
+    impact: {
+      results: [
+        "Delivered a production-ready platform covering the complete e-commerce lifecycle",
+        "Unified three payment gateways under a single checkout flow with no provider-specific UI branching",
+        "URL-synced filtering improved shareability and reduced user drop-off on the shop page",
+      ],
+      lessons: [
+        "Designing webhook handlers for idempotency from the start saves significant debugging time when integrating multiple payment providers",
+        "URL-first state management with TanStack Router is far more maintainable than client-side filter state for complex product listings",
+      ],
+    },
+    technologies: [
+      "TypeScript",
+      "Node.js",
+      "NestJS",
+      "PostgreSQL",
+      "ChakraUI",
+      "TanStack Router",
+      "Stripe",
+      "Paystack",
+      "Crypto",
+    ],
+    externalLink: "https://clicon-andemosa.vercel.app/",
+    githubLink: "https://github.com/andemosa/clicon",
+    imageLink: "/images/clicon/homepage.webp",
+    gallery: [
+      "/images/clicon/homepage.webp",
+      "/images/clicon/shop.webp",
+      "/images/clicon/wishlist.webp",
+      "/images/clicon/cart.webp",
+      "/images/clicon/compare.webp",
+      "/images/clicon/history.webp",
+    ],
+    year: "2025",
+    category: "E-Commerce",
+  },
+  {
     slug: "creon",
     title: "Creon",
     subtitle: "NFT & AI Landing Page",
